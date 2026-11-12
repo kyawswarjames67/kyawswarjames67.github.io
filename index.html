@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Love Surprise ❤️</title>
+  <title>For Ma Ma ❤️</title>
   <style>
     * {
       box-sizing: border-box;
@@ -24,7 +24,7 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       padding: 35px 25px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(255, 75, 110, 0.25);
@@ -50,9 +50,9 @@
 
     h1 {
       color: #e63946;
-      font-size: 24px;
-      margin-bottom: 12px;
-      line-height: 1.4;
+      font-size: 22px;
+      margin-bottom: 15px;
+      line-height: 1.5;
     }
 
     p {
@@ -65,19 +65,21 @@
     .btn-group {
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 15px;
       position: relative;
       min-height: 48px;
     }
 
     button {
-      padding: 12px 26px;
-      font-size: 16px;
+      padding: 12px 24px;
+      font-size: 15px;
       font-weight: bold;
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .btn-primary {
@@ -93,7 +95,7 @@
 
     .btn-secondary {
       background: #f1f1f1;
-      color: #666;
+      color: #555;
     }
 
     .hidden {
@@ -118,49 +120,162 @@
 </head>
 <body>
 
+  <!-- အဆင့် ၁ -->
   <div class="card" id="step1">
     <div class="envelope-icon" onclick="nextStep(2)">💌</div>
-    <h1>မင်းအတွက် လျှို့ဝှက်စာတစ်စောင်</h1>
-    <p>စာအိတ်လေးကို နှိပ်ပြီး ဖွင့်ကြည့်လိုက်ပါနော်...</p>
-    <button class="btn-primary" onclick="nextStep(2)">စာဖွင့်မယ် ✨</button>
+    <h1>စာအိတ်လေးကို ဖွင့်ကြည့်ပေးပါနော်</h1>
+    <button class="btn-primary" onclick="nextStep(2)">ကြည့်မယ် ✨</button>
   </div>
 
+  <!-- အဆင့် ၂ -->
   <div class="card hidden" id="step2">
-    <div style="font-size: 50px; margin-bottom: 10px;">🥺💖</div>
-    <h1>ကိုယ့်ကို ချစ်လားဟင်?</h1>
-    <p>အမှန်အတိုင်း ဖြေရမယ်နော်...</p>
+    <div style="font-size: 50px; margin-bottom: 10px;">😊💬</div>
+    <h1>မမ ကျွန်တော်နဲ့ စကားပြောရတာ ပျော်လား</h1>
     <div class="btn-group">
-      <button class="btn-primary" onclick="celebrate()">အရမ်းချစ်တယ် ❤️</button>
-      <button class="btn-secondary" id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">မချစ်ဘူး 😜</button>
+      <button class="btn-primary" onclick="nextStep(3)">ပျော်တယ် ❤️</button>
+      <button class="btn-secondary" id="noBtn2" onmouseover="runAway('noBtn2', texts2)" ontouchstart="runAway('noBtn2', texts2)">မပျော်ဘူး</button>
     </div>
   </div>
 
+  <!-- အဆင့် ၃ -->
   <div class="card hidden" id="step3">
+    <div style="font-size: 50px; margin-bottom: 10px;">🥰🌸</div>
+    <h1>ကျွန်တော်တို့ နှစ်ယောက် ဒီထက်ပိုပြီး ရှေ့ဆက်သွားလို့ ရမလား မမ</h1>
+    <div class="btn-group">
+      <button class="btn-primary" onclick="nextStep(4)">ရတာပေါ့ ❤️</button>
+      <button class="btn-secondary" id="noBtn3" onmouseover="runAway('noBtn3', texts3)" ontouchstart="runAway('noBtn3', texts3)">စဉ်းစားဦးမယ် 😜</button>
+    </div>
+  </div>
+
+  <!-- အဆင့် ၄ -->
+  <div class="card hidden" id="step4">
+    <div style="font-size: 50px; margin-bottom: 10px;">🥺👉👈</div>
+    <h1>စိတ်ဆိုးသွားပြီလားဟင်</h1>
+    <div class="btn-group">
+      <button class="btn-primary" onclick="nextStep(5)">မဆိုးပါဘူး ❤️</button>
+      <button class="btn-secondary" id="noBtn4" onmouseover="runAway('noBtn4', texts4)" ontouchstart="runAway('noBtn4', texts4)">စိတ်ဆိုးတယ် 😤</button>
+    </div>
+  </div>
+
+  <!-- အဆင့် ၅ -->
+  <div class="card hidden" id="step5">
+    <div style="font-size: 50px; margin-bottom: 10px;">💖✨</div>
+    <h1>မမ ကျွန်တော့်ကို ချစ်လား</h1>
+    <div class="btn-group">
+      <button class="btn-primary" onclick="nextStep(6)">အရမ်းချစ်တယ် ❤️</button>
+      <button class="btn-secondary" id="noBtn5" onmouseover="runAway('noBtn5', texts5)" ontouchstart="runAway('noBtn5', texts5)">မချစ်ဘူး 😜</button>
+    </div>
+  </div>
+
+  <!-- အဆင့် ၆ (မပြေးဘဲ သေးသွားမည့် ခလုတ် + ကြီးလာမည့် ခလုတ်) -->
+  <div class="card hidden" id="step6">
+    <div style="font-size: 50px; margin-bottom: 10px;">🤞💕</div>
+    <h1>ဒါဆို နောက်ဆိုရင်လည်း ကျွန်တော့်အနားမှာ အမြဲတမ်း ရှိနေပေးမယ်လို့ ကတိပေးမလား မမ</h1>
+    <div class="btn-group">
+      <button class="btn-primary" id="yesBtn6" onclick="celebrate()">ကတိပေးတယ် ❤️</button>
+      <button class="btn-secondary" id="noBtn6" onclick="shrinkAndGrow()">မပေးဘူး 😜</button>
+    </div>
+  </div>
+
+  <!-- အဆင့် ၇ -->
+  <div class="card hidden" id="step7">
     <div style="font-size: 60px; margin-bottom: 10px;">🥰🎉</div>
-    <h1>Yay! ကိုယ်လည်း အရမ်းချစ်တယ်!</h1>
+    <h1>Yay! ကျွန်တော်လည်း မမကို အရမ်းချစ်တယ်!</h1>
     <p>
-      မင်းရှိနေပေးလို့ ကိုယ့်ရဲ့ နေ့ရက်တိုင်းက အဓိပ္ပာယ်ရှိနေတာပါ။ 
-      အမြဲတမ်း အတူတူ ရှိသွားကြမယ်နော် ❤️
+      မမ ရှိနေပေးလို့ ကျွန်တော့်ရဲ့ နေ့ရက်တိုင်းက အဓိပ္ပာယ်ရှိနေတာပါ။ 
+      အမြဲတမ်း ပျော်ရွှင်အောင် ထားပါ့မယ်နော်။ ချစ်တယ် မမ ❤️✨
     </p>
   </div>
 
   <script>
+    const texts2 = [
+      "ဟာ.. မနှိပ်နဲ့လေ 🥺",
+      "တကယ်ကြီးလား မမ 😢",
+      "ပျော်တယ်ပဲ နှိပ်ပါနော် 💖",
+      "မရဘူး ပြေးမှာပဲ 😜"
+    ];
+
+    const texts3 = [
+      "မစဉ်းစားပါနဲ့တော့ မမ 🥺",
+      "ရတာပေါ့ပဲ နှိပ်ပါနော် 💖",
+      "ဟာ.. လိုက်မဖမ်းနဲ့လေ 😆",
+      "ကျွန်တော် အရမ်းချစ်တာ သိရဲ့သားနဲ့ ❤️",
+      "မရဘူး ပြေးမှာပဲ 😜"
+    ];
+
+    const texts4 = [
+      "စိတ်မဆိုးပါနဲ့ မမ 🥺",
+      "ချော့မယ်လေနော် 💖",
+      "မဆိုးပါဘူးပဲ နှိပ်ပါနော် 🙏",
+      "ဟာ.. လိုက်မဖမ်းနဲ့လေ 😆",
+      "စိတ်ဆိုးရင် မလှဘဲ နေလိမ့်မယ် 😜"
+    ];
+
+    const texts5 = [
+      "ဟာ.. မညာနဲ့နော် 🥺",
+      "အရမ်းချစ်တယ်ပဲ နှိပ်လိုက်ပါ 💖",
+      "တကယ်ကြီး မချစ်ဘူးလား မမ 😢",
+      "ကျွန်တော် ငိုလိုက်မှာနော် 😭",
+      "လိုက်ဖမ်းလို့ မမိပါဘူး 😆",
+      "မမ ချစ်တာ ကျွန်တော် သိတယ်လေ ❤️",
+      "မရဘူး ပြေးနေမှာပဲ 😜"
+    ];
+
+    const texts6 = [
+      "ဟာ.. ကတိပေးပါနော် 🥺",
+      "တကယ်ကြီး မပေးဘူးလား မမ 😢",
+      "ကတိပေးတယ်ပဲ နှိပ်ပါ 💖",
+      "ခလုတ်လေး သေးသွားပြီနော် 😆",
+      "နောက်ဆုံးတစ်ချက်ပဲ ကျန်တော့တယ် 🥺"
+    ];
+
+    let step6ClickCount = 0;
+
     function nextStep(step) {
-      document.getElementById('step1').classList.add('hidden');
-      document.getElementById('step2').classList.add('hidden');
-      document.getElementById('step3').classList.add('hidden');
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById('step' + i).classList.add('hidden');
+      }
       document.getElementById('step' + step).classList.remove('hidden');
     }
 
-    function moveButton() {
-      const noBtn = document.getElementById('noBtn');
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    function runAway(btnId, textArray) {
+      const btn = document.getElementById(btnId);
+      const x = Math.random() * 180 - 90;
+      const y = Math.random() * 180 - 90;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+      
+      const randomText = textArray[Math.floor(Math.random() * textArray.length)];
+      btn.innerText = randomText;
+    }
+
+    function shrinkAndGrow() {
+      const yesBtn = document.getElementById('yesBtn6');
+      const noBtn = document.getElementById('noBtn6');
+
+      if (step6ClickCount < texts6.length) {
+        noBtn.innerText = texts6[step6ClickCount];
+      }
+      step6ClickCount++;
+
+      // ကတိပေးတယ် ခလုတ်ကို ကြီးလာစေရန်
+      const currentFontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+      const currentPadY = parseFloat(window.getComputedStyle(yesBtn).paddingTop);
+      const currentPadX = parseFloat(window.getComputedStyle(yesBtn).paddingLeft);
+
+      yesBtn.style.fontSize = (currentFontSize + 5) + 'px';
+      yesBtn.style.padding = (currentPadY + 4) + 'px ' + (currentPadX + 8) + 'px';
+
+      // မပေးဘူး ခလုတ်ကို သေးသွားစေရန်
+      const noScale = Math.max(0, 1 - step6ClickCount * 0.18);
+      if (noScale <= 0.1) {
+        noBtn.style.display = 'none';
+      } else {
+        noBtn.style.transform = `scale(${noScale})`;
+      }
     }
 
     function celebrate() {
-      nextStep(3);
+      nextStep(7);
       setInterval(createHeart, 200);
     }
 
